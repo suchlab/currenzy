@@ -18,7 +18,7 @@ jobs:
       - name: Update rates
         run: |
           npm install
-          ${{ secrets.RATES_URL }} node cron
+          RATES_URL="${{ secrets.RATES_URL }}" node cron
 
       - name: Setup git config
         run: |
