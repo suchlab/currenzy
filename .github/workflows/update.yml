@@ -10,13 +10,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: checkout
+      - name: Checkout
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
 
       - name: Update rates
         run: |
+          npm install
           node cron
 
       - name: Setup git config
@@ -24,7 +25,7 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
 
-      - name: commit
+      - name: Commit
         run: |
           git commit -m "Update rates"
           git push origin main
