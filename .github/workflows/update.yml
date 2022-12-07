@@ -15,9 +15,12 @@ jobs:
         with:
           node-version: 18.x
 
-      - name: Update rates
+      - name: Install dependencies
         run: |
           npm install
+
+      - name: Update rates
+        run: |
           RATES_URL="${{ secrets.RATES_URL }}" node cron
 
       - name: Setup git config
