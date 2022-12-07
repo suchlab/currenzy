@@ -30,5 +30,6 @@ jobs:
 
       - name: Commit
         run: |
+          git add data/rates.json
           git commit -m "Update rates"
           git push origin main
