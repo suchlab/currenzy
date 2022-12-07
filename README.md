@@ -25,6 +25,7 @@ To make a conversion, add the amount and the target currency:
 
 ```js
 const amountInUSD = await currenzy.convert(5, 'USD');
+// 5.266205
 ```
 
 ### Refresh rates

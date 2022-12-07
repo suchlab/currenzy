@@ -31,6 +31,8 @@ export default class Currenzy {
 		}
 
 		this.rates = data;
+
+		return true;
 	};
 
 	// Make conversion
