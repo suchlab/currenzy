@@ -1,0 +1,30 @@
+name: Update rates
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '34 */12 * *'
+
+jobs:
+  date:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: checkout
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+
+      - name: Update rates
+        run: |
+          node cron
+
+      - name: Setup git config
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+
+      - name: commit
+        run: |
+          git commit -m "Update rates"
+          git push origin main
