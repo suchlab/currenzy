@@ -1,6 +1,6 @@
 import { default as requestHelper, RequestParameters } from './helpers/request.js';
 
-const DATA_URL = 'https://raw.githubusercontent.com/currenzy/currenzy/main/data/rates.json';
+const DATA_URL = 'https://raw.githubusercontent.com/suchlab/currenzy/main/data/rates.json';
 
 let data: any;
 

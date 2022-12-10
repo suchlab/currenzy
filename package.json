@@ -1,6 +1,6 @@
 {
   "name": "currenzy",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Get currencies exchange rates",
   "scripts": {
     "build": "rm -rf ./dist && npm run build:esm && npm run build:cjs && sh ./scripts/build-packages.sh",
@@ -38,12 +38,12 @@
     "exchange-rates",
     "currencies"
   ],
-  "homepage": "https://github.com/currenzy/currenzy",
+  "homepage": "https://github.com/suchlab/currenzy",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/currenzy/currenzy.git"
+    "url": "git+https://github.com/suchlab/currenzy.git"
   },
   "bugs": {
-    "url": "https://github.com/currenzy/currenzy/issues"
+    "url": "https://github.com/suchlab/currenzy/issues"
   }
 }
