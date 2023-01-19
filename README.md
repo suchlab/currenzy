@@ -39,6 +39,41 @@ However, you can re-fetch the latest rates using the `refreshRates` method:
 await currenzy.refreshRates();
 ```
 
+## Currencies
+This is the list of supported currencies by Currenzy:
+
+|     |     |     |     |     |     |
+|-----|-----|-----|-----|-----|-----|
+| AED | CHF | HKD | LSL | PKR | TTD |
+| AFN | CLF | HNL | LTL | PLN | TWD |
+| ALL | CLP | HRK | LVL | PYG | TZS |
+| AMD | CNY | HTG | LYD | QAR | UAH |
+| ANG | COP | HUF | MAD | RON | UGX |
+| AOA | CRC | IDR | MDL | RSD | USD |
+| ARS | CUC | ILS | MGA | RUB | UYU |
+| AUD | CUP | IMP | MKD | RWF | UZS |
+| AWG | CVE | INR | MMK | SAR | VEF |
+| AZN | CZK | IQD | MNT | SBD | VES |
+| BAM | DJF | IRR | MOP | SCR | VND |
+| BBD | DKK | ISK | MRO | SDG | VUV |
+| BDT | DOP | JEP | MUR | SEK | WST |
+| BGN | DZD | JMD | MVR | SGD | XAF |
+| BHD | EGP | JOD | MWK | SHP | XAG |
+| BIF | ERN | JPY | MXN | SLE | XAU |
+| BMD | ETB | KES | MYR | SLL | XCD |
+| BND | EUR | KGS | MZN | SOS | XDR |
+| BOB | FJD | KHR | NAD | SRD | XOF |
+| BRL | FKP | KMF | NGN | STD | XPF |
+| BSD | GBP | KPW | NIO | SVC | YER |
+| BTC | GEL | KRW | NOK | SYP | ZAR |
+| BTN | GGP | KWD | NPR | SZL | ZMK |
+| BWP | GHS | KYD | NZD | THB | ZMW |
+| BYN | GIP | KZT | OMR | TJS | ZWL |
+| BYR | GMD | LAK | PAB | TMT |     |
+| BZD | GNF | LBP | PEN | TND |     |
+| CAD | GTQ | LKR | PGK | TOP |     |
+| CDF | GYD | LRD | PHP | TRY |     |
+
 ----
 
 ### Template
