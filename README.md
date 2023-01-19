@@ -64,6 +64,25 @@ This is the list of supported currencies by Currenzy:
 | BND | CUP | GNF | KES | MGA | PAB | SLE | USD | ZWL |
 | BOB | CVE | GTQ | KGS | MKD | PEN | SLL | UYU |     |
 
+## CLI support
+You can also use Currenzy from your terminal!
+
+Install the package globally:
+```sh
+npm install currenzy@latest -g
+```
+
+Use as follows:
+```sh
+cur <fromAmount> <fromCurrency> <targetCurrency>
+```
+
+Example:
+```sh
+cur 1 eur usd
+```
+
+Would output: `1.081233 USD`
 
 ----
 
