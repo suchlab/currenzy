@@ -10,6 +10,9 @@
     "prepare": "npm run build",
     "test": "npm run build && jest --config jestconfig.json --passWithNoTests --detectOpenHandles"
   },
+  "bin": {
+    "cur": "bin/cli.js"
+  },
   "author": "itaibo@hey.com",
   "license": "MIT",
   "dependencies": {
@@ -33,7 +36,8 @@
     }
   },
   "files": [
-    "dist/**/*"
+    "dist/**/*",
+    "bin/**/*"
   ],
   "keywords": [
     "exchange-rates",
