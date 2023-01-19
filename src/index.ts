@@ -1,9 +1,9 @@
 import { default as request } from './helpers/request.js';
-import { CurrencyCode } from './helpers/CurrencyCode.js';
-export { CurrencyCode } from './helpers/CurrencyCode.js';
 
 const DATA_URL = 'https://raw.githubusercontent.com/suchlab/currenzy/main/data/rates.json';
 const RATES_CACHE_RESULT_DURATION_HOURS = 5;
+
+export type CurrencyCode = 'AED' | 'AFN' | 'ALL' | 'AMD' | 'ANG' | 'AOA' | 'ARS' | 'AUD' | 'AWG' | 'AZN' | 'BAM' | 'BBD' | 'BDT' | 'BGN' | 'BHD' | 'BIF' | 'BMD' | 'BND' | 'BOB' | 'BRL' | 'BSD' | 'BTC' | 'BTN' | 'BWP' | 'BYN' | 'BYR' | 'BZD' | 'CAD' | 'CDF' | 'CHF' | 'CLF' | 'CLP' | 'CNY' | 'COP' | 'CRC' | 'CUC' | 'CUP' | 'CVE' | 'CZK' | 'DJF' | 'DKK' | 'DOP' | 'DZD' | 'EGP' | 'ERN' | 'ETB' | 'EUR' | 'FJD' | 'FKP' | 'GBP' | 'GEL' | 'GGP' | 'GHS' | 'GIP' | 'GMD' | 'GNF' | 'GTQ' | 'GYD' | 'HKD' | 'HNL' | 'HRK' | 'HTG' | 'HUF' | 'IDR' | 'ILS' | 'IMP' | 'INR' | 'IQD' | 'IRR' | 'ISK' | 'JEP' | 'JMD' | 'JOD' | 'JPY' | 'KES' | 'KGS' | 'KHR' | 'KMF' | 'KPW' | 'KRW' | 'KWD' | 'KYD' | 'KZT' | 'LAK' | 'LBP' | 'LKR' | 'LRD' | 'LSL' | 'LTL' | 'LVL' | 'LYD' | 'MAD' | 'MDL' | 'MGA' | 'MKD' | 'MMK' | 'MNT' | 'MOP' | 'MRO' | 'MUR' | 'MVR' | 'MWK' | 'MXN' | 'MYR' | 'MZN' | 'NAD' | 'NGN' | 'NIO' | 'NOK' | 'NPR' | 'NZD' | 'OMR' | 'PAB' | 'PEN' | 'PGK' | 'PHP' | 'PKR' | 'PLN' | 'PYG' | 'QAR' | 'RON' | 'RSD' | 'RUB' | 'RWF' | 'SAR' | 'SBD' | 'SCR' | 'SDG' | 'SEK' | 'SGD' | 'SHP' | 'SLE' | 'SLL' | 'SOS' | 'SRD' | 'STD' | 'SVC' | 'SYP' | 'SZL' | 'THB' | 'TJS' | 'TMT' | 'TND' | 'TOP' | 'TRY' | 'TTD' | 'TWD' | 'TZS' | 'UAH' | 'UGX' | 'USD' | 'UYU' | 'UZS' | 'VEF' | 'VES' | 'VND' | 'VUV' | 'WST' | 'XAF' | 'XAG' | 'XAU' | 'XCD' | 'XDR' | 'XOF' | 'XPF' | 'YER' | 'ZAR' | 'ZMK' | 'ZMW' | 'ZWL';
 
 type Rates = {
 	[key in CurrencyCode]: number;
@@ -15,7 +15,7 @@ let updatedAt: number;
 export default class Currenzy {
 	baseCurrency: CurrencyCode;
 
-	constructor(baseCurrency: CurrencyCode = CurrencyCode.EUR) {
+	constructor(baseCurrency: CurrencyCode = 'EUR') {
 		this.refreshRates();
 		this.baseCurrency = baseCurrency;
 	};
@@ -43,12 +43,12 @@ export default class Currenzy {
 	};
 
 	// Make conversion
-	async convert(amount: number = 0, currency: CurrencyCode = CurrencyCode.USD): Promise<number> {
+	async convert(amount: number = 0, currency: CurrencyCode = 'USD'): Promise<number> {
 		const result = await this.conversion(this.baseCurrency, amount, currency);
 		return result;
 	}
 
-	private async conversion(fromCurrency: CurrencyCode = CurrencyCode.EUR, fromAmount: number = 0, toCurrency: CurrencyCode = CurrencyCode.USD): Promise<number> {
+	private async conversion(fromCurrency: CurrencyCode = 'EUR', fromAmount: number = 0, toCurrency: CurrencyCode = 'USD'): Promise<number> {
 		if (!rates || !this.validResults()) {
 			await this.refreshRates();
 		}
