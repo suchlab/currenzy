@@ -11,7 +11,7 @@ npm install currenzy
 ```
 
 ## Usage
-Initialize Currenzy with the base currency. If not provided, the base currency by default is EUR.
+Initialize Currenzy with the base currency. If not provided, the base currency by default is EUR. Currency uses the ISO 4217 standard.
 
 ```js
 import Currenzy from 'currenzy';
@@ -30,14 +30,19 @@ const amountInUSD = await currenzy.convert(5, 'USD');
 
 ### Refresh rates
 The class instance downloads the latest rates from this repo, but saves the results in memory.
-If your application lives more than 12 hours, you can re-fetch the latest rates using the `refreshRates` method:
+
+The `convert()` method automatically checks if the data is older than 6 hours. If so, it fetches again the data.
+
+However, you can re-fetch the latest rates using the `refreshRates` method:
 
 ```js
 await currenzy.refreshRates();
 ```
 
+----
+
 ### Template
-Used the "package" template from [get-template](https://github.com/get-template/package-template)
+Used the `package` template from [get-template](https://github.com/suchlab/package-template)
 
 ```sh
 npx get-template@latest package
