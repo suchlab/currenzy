@@ -42,37 +42,28 @@ await currenzy.refreshRates();
 ## Currencies
 This is the list of supported currencies by Currenzy:
 
-|     |     |     |     |     |     |
-|-----|-----|-----|-----|-----|-----|
-| AED | CHF | HKD | LSL | PKR | TTD |
-| AFN | CLF | HNL | LTL | PLN | TWD |
-| ALL | CLP | HRK | LVL | PYG | TZS |
-| AMD | CNY | HTG | LYD | QAR | UAH |
-| ANG | COP | HUF | MAD | RON | UGX |
-| AOA | CRC | IDR | MDL | RSD | USD |
-| ARS | CUC | ILS | MGA | RUB | UYU |
-| AUD | CUP | IMP | MKD | RWF | UZS |
-| AWG | CVE | INR | MMK | SAR | VEF |
-| AZN | CZK | IQD | MNT | SBD | VES |
-| BAM | DJF | IRR | MOP | SCR | VND |
-| BBD | DKK | ISK | MRO | SDG | VUV |
-| BDT | DOP | JEP | MUR | SEK | WST |
-| BGN | DZD | JMD | MVR | SGD | XAF |
-| BHD | EGP | JOD | MWK | SHP | XAG |
-| BIF | ERN | JPY | MXN | SLE | XAU |
-| BMD | ETB | KES | MYR | SLL | XCD |
-| BND | EUR | KGS | MZN | SOS | XDR |
-| BOB | FJD | KHR | NAD | SRD | XOF |
-| BRL | FKP | KMF | NGN | STD | XPF |
-| BSD | GBP | KPW | NIO | SVC | YER |
-| BTC | GEL | KRW | NOK | SYP | ZAR |
-| BTN | GGP | KWD | NPR | SZL | ZMK |
-| BWP | GHS | KYD | NZD | THB | ZMW |
-| BYN | GIP | KZT | OMR | TJS | ZWL |
-| BYR | GMD | LAK | PAB | TMT |     |
-| BZD | GNF | LBP | PEN | TND |     |
-| CAD | GTQ | LKR | PGK | TOP |     |
-| CDF | GYD | LRD | PHP | TRY |     |
+|     |     |     |     |     |     |     |     |     |
+|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+| AED | BRL | CZK | GYD | KHR | MMK | PGK | SOS | UZS |
+| AFN | BSD | DJF | HKD | KMF | MNT | PHP | SRD | VEF |
+| ALL | BTC | DKK | HNL | KPW | MOP | PKR | STD | VES |
+| AMD | BTN | DOP | HRK | KRW | MRO | PLN | SVC | VND |
+| ANG | BWP | DZD | HTG | KWD | MUR | PYG | SYP | VUV |
+| AOA | BYN | EGP | HUF | KYD | MVR | QAR | SZL | WST |
+| ARS | BYR | ERN | IDR | KZT | MWK | RON | THB | XAF |
+| AUD | BZD | ETB | ILS | LAK | MXN | RSD | TJS | XAG |
+| AWG | CAD | EUR | IMP | LBP | MYR | RUB | TMT | XAU |
+| AZN | CDF | FJD | INR | LKR | MZN | RWF | TND | XCD |
+| BAM | CHF | FKP | IQD | LRD | NAD | SAR | TOP | XDR |
+| BBD | CLF | GBP | IRR | LSL | NGN | SBD | TRY | XOF |
+| BDT | CLP | GEL | ISK | LTL | NIO | SCR | TTD | XPF |
+| BGN | CNY | GGP | JEP | LVL | NOK | SDG | TWD | YER |
+| BHD | COP | GHS | JMD | LYD | NPR | SEK | TZS | ZAR |
+| BIF | CRC | GIP | JOD | MAD | NZD | SGD | UAH | ZMK |
+| BMD | CUC | GMD | JPY | MDL | OMR | SHP | UGX | ZMW |
+| BND | CUP | GNF | KES | MGA | PAB | SLE | USD | ZWL |
+| BOB | CVE | GTQ | KGS | MKD | PEN | SLL | UYU |     |
+
 
 ----
 
