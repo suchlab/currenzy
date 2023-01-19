@@ -11,6 +11,12 @@ if (!fromAmount || !fromCurrency || !targetCurrency) {
 
 const currency = new Currenzy(fromCurrency.toUpperCase());
 
-const conversion = await currency.convert(fromAmount, targetCurrency.toUpperCase());
+try {
+	const conversion = await currency.convert(fromAmount, targetCurrency.toUpperCase());
 
-console.log(conversion, targetCurrency.toUpperCase());
+	console.log(conversion, targetCurrency.toUpperCase());
+	process.exit(0);
+} catch (e) {
+	console.error(e?.message || 'Could not make the conversion');
+	process.exit(1);
+}
