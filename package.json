@@ -1,6 +1,6 @@
 {
   "name": "currenzy",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Get currencies exchange rates",
   "scripts": {
     "build": "rm -rf ./dist && npm run build:esm && npm run build:cjs && sh ./scripts/build-packages.sh",
