@@ -1,57 +1,64 @@
-import { default as requestHelper, RequestParameters } from './helpers/request.js';
+import { default as request } from './helpers/request.js';
+import { CurrencyCode } from './helpers/CurrencyCode.js';
+export { CurrencyCode } from './helpers/CurrencyCode.js';
 
 const DATA_URL = 'https://raw.githubusercontent.com/suchlab/currenzy/main/data/rates.json';
+const RATES_CACHE_RESULT_DURATION_HOURS = 5;
 
-let data: any;
+type Rates = {
+	[key in CurrencyCode]: number;
+};
+
+let rates: Rates;
+let updatedAt: number;
 
 export default class Currenzy {
-	rates: any;
-	baseCurrency: String;
+	baseCurrency: CurrencyCode;
 
-
-	constructor(baseCurrency: String = 'EUR') {
+	constructor(baseCurrency: CurrencyCode = CurrencyCode.EUR) {
 		this.refreshRates();
-		this.baseCurrency = baseCurrency.toUpperCase();
-	}
+		this.baseCurrency = baseCurrency;
+	};
 
 	// Utils
-	async request(path: string = '', parameters: RequestParameters = {}) {
-		return await requestHelper({
-			url: `${path}`,
-			...parameters,
-		});
-	}
+	private validResults(): boolean {
+		const cacheThresholdMilliseconds = RATES_CACHE_RESULT_DURATION_HOURS * 60 * 60 * 1000;
+		const resultsValidTime = updatedAt && Date.now() < updatedAt + cacheThresholdMilliseconds;
+
+		return !!resultsValidTime;
+	};
 
 	// Refresh rates
-	async refreshRates() {
-		data = await requestHelper({ url: DATA_URL });
+	async refreshRates(): Promise<boolean> {
+		const result = await request({ url: DATA_URL });
 
-		if (data.error) {
-			throw new Error(data.error);
+		if (result.error) {
+			throw new Error(result.error);
 		}
 
-		this.rates = data;
+		rates = result;
+		updatedAt = Date.now();
 
 		return true;
 	};
 
 	// Make conversion
-	async convert(amount: number = 0, currency: String = 'USD') {
+	async convert(amount: number = 0, currency: CurrencyCode = CurrencyCode.USD): Promise<number> {
 		const result = await this.conversion(this.baseCurrency, amount, currency);
 		return result;
 	}
 
-	private async conversion(fromCurrency: String = 'EUR', fromAmount: number = 0, toCurrency: String = 'USD') {
-		if (!this.rates) {
+	private async conversion(fromCurrency: CurrencyCode = CurrencyCode.EUR, fromAmount: number = 0, toCurrency: CurrencyCode = CurrencyCode.USD): Promise<number> {
+		if (!rates || !this.validResults()) {
 			await this.refreshRates();
 		}
 
 		// Check currencies exist
-		if (!this.rates[fromCurrency.toUpperCase()]) throw new Error('Currency does not exist: ' + fromCurrency);
-		if (!this.rates[toCurrency.toUpperCase()]) throw new Error('Currency does not exist: ' + toCurrency);
+		if (!rates[fromCurrency]) throw new Error('Currency does not exist: ' + fromCurrency);
+		if (!rates[toCurrency]) throw new Error('Currency does not exist: ' + toCurrency);
 
-		const fromCurrencyBase = this.rates[fromCurrency.toUpperCase()];
-		const toCurrencyBase = this.rates[toCurrency.toUpperCase()];
+		const fromCurrencyBase = rates[fromCurrency];
+		const toCurrencyBase = rates[toCurrency];
 
 		const rate = (1 / fromCurrencyBase) * toCurrencyBase;
 
